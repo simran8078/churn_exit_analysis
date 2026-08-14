@@ -12,8 +12,8 @@ model = tf.keras.models.load_model('model.h5')
 with open('label_encoder_gender.pkl', 'rb') as file:
     label_encoder_gender = pickle.load(file)
 
-with open('one_hot_Encoder_geography.pkl', 'rb') as file:
-    one_hot_Encoder_geography = pickle.load(file)
+with open('One_hot_Encoder_geography.pkl', 'rb') as file:
+    One_hot_Encoder_geography = pickle.load(file)
 
 with open('ss.pkl', 'rb') as file:
     ss = pickle.load(file)
@@ -23,7 +23,7 @@ with open('ss.pkl', 'rb') as file:
 st.title('Customer Churn Prediction')
 
 # User input
-geography = st.selectbox('Geography', one_hot_Encoder_geography.categories_[0])
+geography = st.selectbox('Geography', One_hot_Encoder_geography.categories_[0])
 gender = st.selectbox('Gender', label_encoder_gender.classes_)
 age = st.slider('Age', 18, 92)
 balance = st.number_input('Balance')
@@ -49,7 +49,7 @@ input_data = pd.DataFrame({
 
 # One-hot encode 'Geography'
 geo_encoded = one_hot_Encoder_geography.transform([[geography]]).toarray()
-geo_encoded_df = pd.DataFrame(geo_encoded, columns=one_hot_encoder_geography.get_feature_names_out(['Geography']))
+geo_encoded_df = pd.DataFrame(geo_encoded, columns=One_hot_Encoder_geography.get_feature_names_out(['Geography']))
 
 # Combine one-hot encoded columns with input data
 input_data = pd.concat([input_data.reset_index(drop=True), geo_encoded_df], axis=1)
