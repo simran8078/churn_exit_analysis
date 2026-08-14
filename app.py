@@ -55,7 +55,7 @@ geo_encoded_df = pd.DataFrame(geo_encoded, columns=One_hot_Encoder_geography.get
 input_data = pd.concat([input_data.reset_index(drop=True), geo_encoded_df], axis=1)
 
 # Scale the input data
-input_data_ss = ss.transform(input_data)
+input_data_scaled = ss.transform(input_data)
 
 
 # Predict churn
