@@ -1,0 +1,10 @@
+tensorflow
+pandas
+numpy
+scikit_learn
+tensorboard
+matplotlib
+streamlit
+seaborn
+scikeras
+ipykernel
