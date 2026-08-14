@@ -59,7 +59,7 @@ input_data_ss = ss.transform(input_data)
 
 
 # Predict churn
-prediction = model.predict(input_data_scaled)
+prediction = model.predict(input_data_scaled, verbose=0)
 prediction_proba = prediction[0][0]
 
 st.write(f'Churn Probability: {prediction_proba:.2f}')
